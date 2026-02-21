@@ -20,8 +20,8 @@ const Advert = () => {
         <div className="bg-white border  shadow-2xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
           <Store size={40} color="gray" />
           <div className="flex flex-col items-center">
-            <h3 className="font-bold text-2xl">15</h3>
-            <h5 className="text-sm">Branched Nationwide</h5>
+            <h3 className="font-bold  text-2xl">15</h3>
+            <h5 className="text-sm text-gray-600">Branched Nationwide</h5>
           </div>
         </div>
 
@@ -29,7 +29,7 @@ const Advert = () => {
           <Users size={40} color="gray" />
           <div className="flex flex-col items-center">
             <h3 className="font-bold text-2xl">30+</h3>
-            <h5 className="text-sm">Major Clients</h5>
+            <h5 className="text-sm text-gray-600">Major Clients</h5>
           </div>
         </div>
 
@@ -37,7 +37,7 @@ const Advert = () => {
           <Truck size={40} color="gray" />
           <div className="flex flex-col items-center">
             <h3 className="font-bold text-2xl">24/7</h3>
-            <h5 className="text-sm">Nationwide</h5>
+            <h5 className="text-sm text-gray-600">Nationwide</h5>
           </div>
         </div>
 
@@ -45,7 +45,7 @@ const Advert = () => {
           <Shield size={40} color="gray" />
           <div className="flex flex-col items-center">
             <h3 className="font-bold text-2xl">Protected</h3>
-            <h5 className="text-sm">Warranty</h5>
+            <h5 className="text-sm text-gray-600">Warranty</h5>
           </div>
         </div>
       </div>

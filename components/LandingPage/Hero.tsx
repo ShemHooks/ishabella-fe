@@ -38,7 +38,7 @@ const Hero = () => {
           HVACR Parts, Solar Systems, Installation & Nationwide Logistics
         </p>
 
-        <Button className="mt-4 px-8 py-6 text-lg font-semibold rounded-xl bg-cyan-400 text-black hover:text-white">
+        <Button className="mt-4 px-8 py-6 text-lg font-semibold rounded-xl bg-white text-black hover:text-white">
           Shop Now
         </Button>
       </div>

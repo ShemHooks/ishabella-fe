@@ -11,8 +11,8 @@ export default function Navbar() {
     <nav className="bg-white  fixed w-full z-50">
       <div className="relative flex items-center h-20 px-6">
         <div className="absolute left-6 flex items-center gap-3">
-          <img src="/images/logo1.png" alt="" className="h-12 w-auto" />
-          <h1 className="text-black text-2xl font-semibold">ISHABELLA</h1>
+          <img src="/images/logo2.jpg" alt="" className="h-12 w-auto" />
+          <h1 className="text-black text-2xl font-semibold">ISHABELLA CORP.</h1>
         </div>
 
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-black">

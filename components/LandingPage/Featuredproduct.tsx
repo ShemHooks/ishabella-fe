@@ -12,9 +12,9 @@ const products = [
     reviews: 124,
     image: "/images/solar-panel.png", // Ensure path matches your public folder
     discount: "-14%",
-    tag: "Best Seller!"
+    tag: "Best Seller!",
   },
-   {
+  {
     id: 2,
     name: "SolarMax Ultra 500W High Efficiency",
     category: "SOLAR PANELS",
@@ -24,9 +24,9 @@ const products = [
     reviews: 124,
     image: "/images/solar-panel.png", // Ensure path matches your public folder
     discount: "-14%",
-    tag: "Best Seller!"
+    tag: "Best Seller!",
   },
-   {
+  {
     id: 3,
     name: "SolarMax Ultra 500W High Efficiency",
     category: "SOLAR PANELS",
@@ -36,9 +36,9 @@ const products = [
     reviews: 124,
     image: "/images/solar-panel.png", // Ensure path matches your public folder
     discount: "-14%",
-    tag: "Best Seller!"
+    tag: "Best Seller!",
   },
-   {
+  {
     id: 4,
     name: "SolarMax Ultra 500W High Efficiency",
     category: "SOLAR PANELS",
@@ -48,16 +48,15 @@ const products = [
     reviews: 124,
     image: "/images/solar-panel.png", // Ensure path matches your public folder
     discount: "-14%",
-    tag: "Best Seller!"
+    tag: "Best Seller!",
   },
   // ... copy the same structure for other products
 ];
 
 const Featuredproduct = () => {
   return (
-    <section className="bg-[#F8FAFC] py-24 px-6">
+    <section className=" py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div>
@@ -71,15 +70,19 @@ const Featuredproduct = () => {
 
           <button className="group flex items-center gap-2 text-[#0A3D62] font-black text-xs uppercase tracking-widest hover:text-cyan-500 transition-colors">
             View Full Catalog
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </button>
         </div>
 
         {/* Product Grid - Improved Horizontal Scroll + Grid */}
-        <div className="flex gap-8 overflow-x-auto pb-10 px-2 snap-x snap-mandatory 
-                        scrollbar-hide lg:grid lg:grid-cols-4 lg:overflow-visible">
-
-          {products.slice(0,6).map((product) => (
+        <div
+          className="flex gap-8 overflow-x-auto pb-10 px-2 snap-x snap-mandatory 
+                        scrollbar-hide lg:grid lg:grid-cols-4 lg:overflow-visible"
+        >
+          {products.slice(0, 6).map((product) => (
             <div
               key={product.id}
               className="min-w-[300px] snap-center group flex flex-col bg-white rounded-[40px] 
@@ -89,14 +92,18 @@ const Featuredproduct = () => {
               {/* Image Section - Light Grey Area */}
               <div className="relative aspect-[4/5] bg-[#F1F5F9] p-10 flex items-center justify-center overflow-hidden">
                 {product.tag && (
-                  <span className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm border border-slate-100 
-                                   text-[#0A3D62] text-[10px] font-black px-3 py-1 rounded-full shadow-sm z-10">
+                  <span
+                    className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm border border-slate-100 
+                                   text-[#0A3D62] text-[10px] font-black px-3 py-1 rounded-full shadow-sm z-10"
+                  >
                     {product.tag}
                   </span>
                 )}
 
-                <span className="absolute top-6 right-6 bg-red-500 text-white text-[10px] font-black 
-                                 px-2 py-1 rounded-lg z-10 shadow-sm">
+                <span
+                  className="absolute top-6 right-6 bg-red-500 text-white text-[10px] font-black 
+                                 px-2 py-1 rounded-lg z-10 shadow-sm"
+                >
                   {product.discount}
                 </span>
 
@@ -137,8 +144,10 @@ const Featuredproduct = () => {
                     </p>
                   </div>
 
-                  <button className="bg-cyan-400 text-[#0A3D62] p-4 rounded-2xl hover:bg-white 
-                                   transition-all active:scale-90 shadow-[0_0_20px_rgba(34,211,238,0.3)]">
+                  <button
+                    className="bg-cyan-400 text-[#0A3D62] p-4 rounded-2xl hover:bg-white 
+                                   transition-all active:scale-90 shadow-[0_0_20px_rgba(34,211,238,0.3)]"
+                  >
                     <ShoppingCart size={20} />
                   </button>
                 </div>

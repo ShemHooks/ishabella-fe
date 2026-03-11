@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 const Hero = () => {
   return (
     <section className="relative min-h-[calc(100dvh-80px)] w-full overflow-hidden flex items-center justify-center">
-      S{" "}
+      {" "}
       <div className="absolute inset-0 -z-10">
         <Aurora
           colorStops={["#22C55E", "#06B6D4", "#67E8F9", "#F0F9FF"]}

@@ -17,7 +17,7 @@ const Advert = () => {
         </h6>
       </div>
       <div className=" grid grid-cols-2 gap-2 lg:flex">
-        <div className="bg-white border  shadow-2xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
+        <div className="bg-white border  shadow-xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
           <Store size={40} color="gray" />
           <div className="flex flex-col items-center">
             <h3 className="font-bold  text-2xl">15</h3>
@@ -25,7 +25,7 @@ const Advert = () => {
           </div>
         </div>
 
-        <div className="bg-white border  shadow-2xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
+        <div className="bg-white border  shadow-xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
           <Users size={40} color="gray" />
           <div className="flex flex-col items-center">
             <h3 className="font-bold text-2xl">30+</h3>
@@ -33,7 +33,7 @@ const Advert = () => {
           </div>
         </div>
 
-        <div className="bg-white border  shadow-2xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
+        <div className="bg-white border  shadow-xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
           <Truck size={40} color="gray" />
           <div className="flex flex-col items-center">
             <h3 className="font-bold text-2xl">24/7</h3>
@@ -41,7 +41,7 @@ const Advert = () => {
           </div>
         </div>
 
-        <div className="bg-white border  shadow-2xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
+        <div className="bg-white border  shadow-xl h-38 lg:w-1/4 rounded-lg text-black flex flex-col justify-center items-center gap-2">
           <Shield size={40} color="gray" />
           <div className="flex flex-col items-center">
             <h3 className="font-bold text-2xl">Protected</h3>

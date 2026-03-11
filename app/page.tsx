@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      
+
       {/* 2. Add it here */}
+      <Advert />
       <ProductCategory />
       <Featuredproduct />
-      <Advert />
+
       <VersePage />
       <AboutPage />
     </main>
   );
 }
-  

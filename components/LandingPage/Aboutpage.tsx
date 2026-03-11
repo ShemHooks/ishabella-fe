@@ -8,24 +8,22 @@ const AboutPage = () => {
   };
 
   return (
-    <footer className="bg-[#EBF5FF] pt-16 pb-8 px-6 md:px-12">
+    <footer className="bg-[#EBF5FF] pt-16 pb-2 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          
           {/* Brand Column */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-[#40C1AD] rounded-full overflow-hidden">
-                {/* Replace with your actual Ishabella logo image */}
-                <img src="/images/logo2.jpg" alt="Ishabella Logo" className="object-cover" />
-              </div>
-              <span className="font-bold text-[#0A3D62] text-xl tracking-tighter uppercase italic">
-                Ishabella
-              </span>
+              {/* Replace with your actual Ishabella logo image */}
+              <img
+                src="/images/logo.png"
+                alt="Ishabella Logo"
+                className="h-30 w-40"
+              />
             </div>
             <p className="text-[#0A3D62]/70 text-sm leading-relaxed">
-              Empowering homes and businesses with premium solar energy solutions. 
-              Trusted by thousands of customers worldwide.
+              Empowering homes and businesses with premium solar energy
+              solutions. Trusted by thousands of customers worldwide.
             </p>
           </div>
 
@@ -36,7 +34,10 @@ const AboutPage = () => {
               <ul className="flex flex-col gap-4">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-[#0A3D62]/80 hover:text-[#0A3D62] transition-colors text-sm font-medium">
+                    <a
+                      href="#"
+                      className="text-[#0A3D62]/80 hover:text-[#0A3D62] transition-colors text-sm font-medium"
+                    >
                       {link}
                     </a>
                   </li>
@@ -46,12 +47,10 @@ const AboutPage = () => {
           ))}
         </div>
 
-        {/* Divider and Copyright */}
+        {/* Divider and Copyright
         <div className="border-t border-[#0A3D62]/20 pt-8 text-center">
-          <p className="text-[#0A3D62]/60 text-sm">
-           
-          </p>
-        </div>
+          <p className="text-[#0A3D62]/60 text-sm"></p>
+        </div> */}
       </div>
     </footer>
   );

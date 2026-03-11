@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "ISHABELLA",
   description: "From Cooling Solutions to Solar Innovation",
   icons: {
-    icon: "/images/logo1.png",
+    icon: "/images/logo2.png",
   },
 };
 

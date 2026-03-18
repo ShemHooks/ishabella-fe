@@ -16,8 +16,8 @@ export default function Navbar() {
 
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-black">
           <Link href="/">Home</Link>
-          <Link href="/shop">Shop</Link>
-          <Link href="/services">Services</Link>
+          <Link href="/screen/landing-page/shop">Shop</Link>
+          <Link href="/screen/landing-page/services-screen">Services</Link>
 
           <Link href="/about">About</Link>
         </div>
@@ -38,7 +38,7 @@ export default function Navbar() {
           <Link href="/" className="block">
             Home
           </Link>
-          <Link href="/shop" className="block">
+          <Link href="/screen/landing-page/shop" className="block">
             Shop
           </Link>
           <Link href="/services" className="block">

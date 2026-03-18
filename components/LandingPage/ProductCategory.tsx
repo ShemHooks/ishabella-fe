@@ -12,10 +12,10 @@ const ProductCategory = () => {
     <section className=" py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8 ">
-          <h2 className="text-4xl font-black text-[#0A3D62] tracking-tighter uppercase italic">
-            PRODUCT CATEGORIES
+          <h2 className="text-3xl font-bold text-gray-800">
+           Product Categories
           </h2>
-          <button className="text-sm font-semibold text-blue-500 hover:text-[#003358] transition-colors">
+          <button className="text-sm font-regular hover:text-[#003358] transition-colors">
             See All
           </button>
         </div>

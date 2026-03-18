@@ -10,7 +10,7 @@ const Hero = () => {
       {" "}
       <div className="absolute inset-0 -z-10">
         <Aurora
-          colorStops={["#22C55E", "#06B6D4", "#67E8F9", "#F0F9FF"]}
+          colorStops={["#22C55E", "#055310", "#113e17", "#F0F9FF"]}
           speed={0.8}
           amplitude={0.7}
           blend={1}

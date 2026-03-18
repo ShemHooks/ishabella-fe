@@ -3,7 +3,7 @@ import { ChevronRight, BookOpen } from "lucide-react";
 
 const VersePage = () => {
   return (
-    <section className="bg-[#0A3D62] text-white py-20 px-6 text-center">
+    <section className="bg-green-800 text-white py-20 px-6 text-center">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
         {/* Cross Icon */}
         <BookOpen size={30} />

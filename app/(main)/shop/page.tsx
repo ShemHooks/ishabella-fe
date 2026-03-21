@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import AboutPage from "../../../../components/LandingPage/Aboutpage";
+import AboutPage from "../../../components/LandingPage/Aboutpage";
 import {
   Search,
   Star,

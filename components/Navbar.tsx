@@ -3,9 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+
+  const router = useRouter();
+
+  const toAuth = () => {
+    router.replace("/screen/auth");
+  };
 
   return (
     <nav className="bg-white  fixed w-full z-50">
@@ -16,16 +23,16 @@ export default function Navbar() {
 
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10 text-black">
           <Link href="/">Home</Link>
-          <Link href="/screen/landing-page/shop">Shop</Link>
-          <Link href="/screen/landing-page/services-screen">Services</Link>
+          <Link href="/shop">Shop</Link>
+          <Link href="/services-screen">Services</Link>
 
           <Link href="/about">About</Link>
         </div>
 
         <div className="absolute right-6 text-black">
-          <Link href="/login" className="hidden md:block">
+          <button className="hidden md:block" onClick={toAuth}>
             Sign in
-          </Link>
+          </button>
 
           <button className="md:hidden" onClick={() => setOpen(!open)}>
             {open ? <X size={28} /> : <Menu size={28} />}
@@ -38,17 +45,17 @@ export default function Navbar() {
           <Link href="/" className="block">
             Home
           </Link>
-          <Link href="/screen/landing-page/shop" className="block">
+          <Link href="/shop" className="block">
             Shop
           </Link>
-          <Link href="/services" className="block">
+          <Link href="/services-screen" className="block">
             Services
           </Link>
           <Link href="/about" className="block">
             About
           </Link>
 
-          <Link href="/login" className="block">
+          <Link href="/screen/landing-page/auth" className="block">
             Sign in
           </Link>
         </div>

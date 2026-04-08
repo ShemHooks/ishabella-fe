@@ -8,6 +8,8 @@ import {
   Truck,
   CreditCard,
   Flame,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 
 export default function ShopPage() {
@@ -164,20 +166,20 @@ export default function ShopPage() {
         </div>
       </div>
 
-      {/* TRUST BAR */}
-      <div className="bg-white py-2 border-b border-slate-100">
-        <div className="max-w-[1200px] mx-auto flex justify-center gap-8 md:gap-16 text-[10px] md:text-xs font-bold text-slate-500">
-          <div className="flex items-center gap-1.5">
-            <Truck size={14} className="text-green-500" /> Free Shipping
-          </div>
-          <div className="flex items-center gap-1.5">
-            <CreditCard size={14} className="text-green-500" /> 0% Interest
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Flame size={14} className="text-green-500" /> Mega Discount
-          </div>
-        </div>
-      </div>
+     {/* TRUST BAR */}
+<div className="bg-white py-2 border-b border-slate-100">
+  <div className="max-w-[1200px] mx-auto flex justify-center gap-8 md:gap-16 text-[10px] md:text-xs font-bold text-slate-500">
+    <div className="flex items-center gap-1.5">
+      <Truck size={14} className="text-[#0A3D62] " /> Nationwide Logistics  <span className="w-2 h-2 rounded-full bg-green-800 animate-pulse"></span>
+    </div>
+    <div className="flex items-center gap-1.5 border-x px-4 md:px-8 border-slate-100">
+      <ShieldCheck size={14} className="text-[#0A3D62] " /> Authorized Dealer <span className="w-2 h-2 rounded-full bg-green-800 animate-pulse"></span>
+    </div>
+    <div className="flex items-center gap-1.5">
+      <Zap size={14} className="text-[#0A3D62] " /> Exclusive Solar Partner <span className="w-2 h-2 rounded-full bg-green-800 animate-pulse"></span>
+    </div>
+  </div>
+</div>
 
       <main className="max-w-[1200px] mx-auto px-4 py-8">
         {/* PRODUCT GRID */}
@@ -185,7 +187,7 @@ export default function ShopPage() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white shadow-sm hover:shadow-md transition-all border border-transparent hover:border-orange-500 group flex flex-col"
+              className="bg-white shadow-sm hover:shadow-md transition-all border border-transparent hover:border-green-700 group flex flex-col"
             >
               <div className="relative aspect-square p-2">
                 <img

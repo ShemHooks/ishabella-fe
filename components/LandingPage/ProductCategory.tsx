@@ -12,10 +12,12 @@ const ProductCategory = () => {
     <section className=" py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8 ">
-          <h2 className="text-3xl font-bold text-gray-800">
-           Product Categories
+          {/* Changed text-gray-800 to #064e3b */}
+          <h2 className="text-3xl font-bold text-[#064e3b]">
+            Product Categories
           </h2>
-          <button className="text-sm font-regular hover:text-[#003358] transition-colors">
+          {/* Changed hover text to emerald-600 */}
+          <button className="text-sm font-regular hover:text-emerald-600 transition-colors">
             See All
           </button>
         </div>
@@ -26,7 +28,8 @@ const ProductCategory = () => {
               key={category.id}
               className="min-w-[85%] sm:min-w-[45%] md:min-w-full snap-center group cursor-pointer"
             >
-              <div className="relative aspect-[16/10] bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col items-center justify-between transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2 group-hover:border-blue-100">
+              {/* Changed group-hover:border-blue-100 to emerald-500 */}
+              <div className="relative aspect-[16/10] bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col items-center justify-between transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2 group-hover:border-emerald-500">
                 <div className="flex-1 flex items-center justify-center p-8 w-full">
                   <img
                     src={category.image}
@@ -34,8 +37,9 @@ const ProductCategory = () => {
                     className="max-h-full object-contain transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
+                {/* Changed text-[#003358] to #064e3b */}
                 <div className="w-full bg-slate-50 py-4 text-center border-t border-slate-100">
-                  <span className="text-[#003358] font-bold text-lg tracking-wide uppercase">
+                  <span className="text-[#064e3b] font-bold text-lg tracking-wide uppercase">
                     {category.name}
                   </span>
                 </div>

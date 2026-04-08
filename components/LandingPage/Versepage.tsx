@@ -3,7 +3,7 @@ import { ChevronRight, BookOpen } from "lucide-react";
 
 const VersePage = () => {
   return (
-    <section className="bg-green-800 text-white py-20 px-6 text-center">
+    <section className="bg-emerald-800 text-white py-20 px-6 text-center">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
         {/* Cross Icon */}
         <BookOpen size={30} />
@@ -14,7 +14,7 @@ const VersePage = () => {
         </h2>
 
         {/* The Quote */}
-        <p className="text-lg md:text-xl italic font-light max-w-2xl">
+        <p className="text-lg md:text-xl italic font-light max-w-2xl ">
           "You armed me with strength for battle; You humbled my adversaries
           before me."
         </p>
@@ -25,7 +25,7 @@ const VersePage = () => {
         </p> */}
 
         {/* CTA Button */}
-        <button className="bg-white text-[#0A3D62] px-8 mt-10 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-blue-50 transition-colors">
+        <button className="bg-white text-black px-8 mt-10 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-emerald-500 transition-colors">
           Learn More <ChevronRight size={18} />
         </button>
       </div>

@@ -48,15 +48,17 @@ export default function Featuredproduct() {
         {/* Header */}
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-3xl font-bold text-gray-800">
+            {/* Updated text-gray-800 to #064e3b */}
+            <h2 className="text-3xl font-black text-[#064e3b] italic uppercase tracking-tighter">
               Featured Products
             </h2>
-            <p className="text-gray-500">
+            <p className="text-gray-500 font-medium">
               Your One-Stop Shop for Solar Parts & Expert Installation.
             </p>
           </div>
 
-          <button className="flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700">
+          {/* Updated text-blue-600 to emerald-600 */}
+          <button className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-emerald-600 hover:text-[#064e3b] transition-colors">
             View All
             <ArrowRight size={16}/>
           </button>
@@ -69,24 +71,25 @@ export default function Featuredproduct() {
 
             <div
               key={product.id}
-              className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition overflow-hidden"
+              className="bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group"
             >
 
               {/* Image */}
-              <div className="relative bg-gray-100 h-56 flex items-center justify-center">
+              <div className="relative bg-slate-50 h-56 flex items-center justify-center">
 
-                <span className="absolute top-3 left-3 bg-emerald-500 text-white text-xs px-3 py-1 rounded">
+                {/* Updated background to emerald-500 */}
+                <span className="absolute top-3 left-3 bg-emerald-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">
                   Best Seller
                 </span>
 
-                <span className="absolute top-3 right-3 bg-yellow-300 text-red-500 text-xs px-3 py-1 rounded">
+                <span className="absolute top-3 right-3 bg-yellow-300 text-red-600 text-[10px] font-black px-3 py-1 rounded-full shadow-sm">
                   {product.discount}
                 </span>
 
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="h-40 object-contain"
+                  className="h-40 object-contain transition-transform duration-500 group-hover:scale-110"
                 />
 
               </div>
@@ -94,12 +97,14 @@ export default function Featuredproduct() {
               {/* Product Info */}
               <div className="p-5">
 
-                <h3 className="text-sm font-medium text-gray-700 mb-3 line-clamp-2">
+                {/* Updated text-gray-700 to #064e3b */}
+                <h3 className="text-sm font-bold text-[#064e3b] mb-3 line-clamp-2 uppercase tracking-tight">
                   {product.name}
                 </h3>
 
                 <div className="flex items-center gap-2">
-                  <span className="text-lg font-bold text-orange-600">
+                  {/* Updated text-orange-600 to emerald-600 or kept orange for contrast */}
+                  <span className="text-lg font-black text-emerald-600">
                     ₱{product.price.toLocaleString()}
                   </span>
 
@@ -108,11 +113,12 @@ export default function Featuredproduct() {
                   </span>
                 </div>
 
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-[10px] font-bold text-gray-400 mt-1 uppercase tracking-widest">
                   {product.sold} sold
                 </p>
 
-                <button className="mt-4 w-full flex items-center justify-center gap-2 bg-green-700 hover:bg-green-850 text-white py-2 rounded-lg transition">
+                {/* Updated background from green-700 to #064e3b */}
+                <button className="mt-4 w-full flex items-center justify-center gap-2 bg-[#064e3b] hover:bg-emerald-700 text-white py-3 rounded-xl font-black uppercase text-xs tracking-widest transition-all shadow-md active:scale-95">
                   <ShoppingCart size={16}/>
                   Buy Now
                 </button>

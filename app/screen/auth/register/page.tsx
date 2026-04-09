@@ -100,7 +100,7 @@ export default function Page() {
           />
           <button
             type="submit"
-            className="w-full bg-green-700 text-white p-3 rounded-md"
+            className="w-full bg-green-700 text-white p-3 rounded-md hover:bg-green-900"
           >
             {loading ? (
               <Loader2 className="h-6 w-6 animate-spin justify-self-center" />

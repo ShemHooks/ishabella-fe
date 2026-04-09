@@ -55,9 +55,9 @@ export default function Navbar() {
             About
           </Link>
 
-          <Link href="/screen/landing-page/auth" className="block">
+          <button onClick={toAuth} className="block">
             Sign in
-          </Link>
+          </button>
         </div>
       )}
     </nav>

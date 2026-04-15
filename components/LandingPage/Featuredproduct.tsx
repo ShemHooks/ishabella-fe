@@ -49,7 +49,7 @@ export default function Featuredproduct() {
         <div className="flex justify-between items-end mb-12">
           <div>
             {/* Updated text-gray-800 to #064e3b */}
-            <h2 className="text-3xl font-black text-[#064e3b] italic uppercase tracking-tighter">
+            <h2 className="text-3xl font-black text-[#064e3b] uppercase tracking-tighter">
               Featured Products
             </h2>
             <p className="text-gray-500 font-medium">

@@ -1,56 +1,67 @@
 import React from "react";
+import { Facebook, Instagram, ShieldCheck, Zap, MessageSquare } from "lucide-react";
 
 const AboutPage = () => {
-  const footerLinks = {
-    Products: ["Solar Panels", "Inverters", "Batteries", "Solar Kits"],
-    Contact: ["About Us", "Careers", "Blog", "Contact"],
-    Support: ["Installation Guide", "Warranty", "FAQ", "Returns"],
-  };
-
   return (
-    <footer className="bg-[#EBF5FF] pt-16 pb-2 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          {/* Brand Column */}
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              {/* Replace with your actual Ishabella logo image */}
-              <img
-                src="/images/logo.png"
-                alt="Ishabella Logo"
-                className="h-30 w-40"
-              />
+    /* Reduced vertical padding from pt-20/pb-10 to pt-12/pb-8 for a tighter box feel */
+    <footer className="bg-[#064e3b] pt-12 pb-8 px-6 text-white relative overflow-hidden">
+      {/* Subtle Grounded energy line */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-emerald-500/30" />
+      
+      {/* Reduced max-width to 6xl to bring content closer together */}
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Reduced margin-bottom from mb-20 to mb-12 */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+          
+          {/* THE ISHABELLA MANIFESTO */}
+          <div className="lg:col-span-2 flex flex-col gap-6">
+            {/* Adjusted logo height for better proportion */}
+            <img src="/images/logo.png" alt="Ishabella" className="h-28 w-auto object-contain self-start" />
+            
+            <div className="space-y-1">
+              <p className="text-xl font-black  uppercase tracking-tighter text-emerald-400">Fearless in action.</p>
+              <p className="text-xl font-black  uppercase tracking-tighter text-white">Grounded in faith.</p>
+              <p className="text-xl font-black  uppercase tracking-tighter text-emerald-500">Relentless in execution.</p>
             </div>
-            <p className="text-[#0A3D62]/70 text-sm leading-relaxed">
-              Empowering homes and businesses with premium solar energy
-              solutions. Trusted by thousands of customers worldwide.
+
+            <p className="text-emerald-100/100 text-xs leading-relaxed max-w-sm font-medium border-l-2 border-emerald-800 pl-4">
+              ISHABELLA CORP is a commitment to excellence in solar and cooling technology.
             </p>
           </div>
 
-          {/* Links Columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h3 className="font-bold text-[#0A3D62] mb-6">{title}</h3>
-              <ul className="flex flex-col gap-4">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-[#0A3D62]/80 hover:text-[#0A3D62] transition-colors text-sm font-medium"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
+          {/* QUICK NAVIGATION */}
+          <div className="grid grid-cols-2 gap-6 lg:col-span-2">
+            <div>
+              <h4 className="font-black text-[9px] uppercase tracking-[0.3em] text-emerald-500 mb-6 text-white/100">Solutions</h4>
+              <ul className="space-y-3 text-xs font-bold text-emerald-100/100">
+                <li className="hover:text-white cursor-pointer transition-colors">Solar Performance</li>
+                <li className="hover:text-white cursor-pointer transition-colors">Industrial Cooling</li>
+                <li className="hover:text-white cursor-pointer transition-colors">Energy Storage</li>
               </ul>
             </div>
-          ))}
+            <div>
+              <h4 className="font-black text-[9px] uppercase tracking-[0.3em] text-emerald-500 mb-6 text-white/100">Connect</h4>
+              <ul className="space-y-3 text-xs font-bold text-emerald-100/100">
+                <li className="flex items-center gap-2 hover:text-white cursor-pointer"><MessageSquare size={14}/> Direct Inquiry</li>
+                <li className="flex items-center gap-2 hover:text-white cursor-pointer"><Facebook size={14}/> Facebook</li>
+                <li className="flex items-center gap-2 hover:text-white cursor-pointer"><Instagram size={14}/> Instagram</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        {/* Divider and Copyright
-        <div className="border-t border-[#0A3D62]/20 pt-8 text-center">
-          <p className="text-[#0A3D62]/60 text-sm"></p>
-        </div> */}
+        {/* LOGISTICS & TRUST BAR */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4">
+          <div className="flex gap-6 items-center">
+            <div className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-emerald-500">
+              <ShieldCheck size={12}/> Authorized Dealer
+            </div>
+            <div className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-emerald-500">
+              <Zap size={12}/> Solar Partner
+            </div>
+          </div>
+          <p className="text-[9px] font-bold opacity-80 tracking-widest uppercase">© 2026 ISHABELLA CORP. Execution is everything.</p>
+        </div>
       </div>
     </footer>
   );

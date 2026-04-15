@@ -10,8 +10,8 @@ import {
 export const menu = [
   { name: "Dashboard", icon: LayoutDashboard, path: "/admin/dashboard" },
   { name: "Products", icon: Package, path: "/admin/products" },
-  { name: "Orders", icon: ShoppingCart, path: "/orders" },
+  { name: "Orders", icon: ShoppingCart, path: "/admin/orders" },
   { name: "Employees", icon: Users, path: "/admin/employee" },
-  { name: "Inventory", icon: Warehouse, path: "/inventory" },
-  { name: "Reports", icon: BarChart3, path: "/reports" },
+  { name: "Inventory", icon: Warehouse, path: "/admin/inventory" },
+  { name: "Reports", icon: BarChart3, path: "/admin/reports" },
 ];

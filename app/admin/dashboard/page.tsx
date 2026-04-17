@@ -49,7 +49,7 @@ export default function CleanDashboard() {
         <h2 className="text-3xl font-black   uppercase tracking-tighter">
           Dashboard <span className="text-black">Overview</span>
         </h2>
-        <p className="text-slate-500 mt-1">Good Morning Admin!!!  </p>
+        <p className="text-slate-500 mt-1">Good Day Admin!</p>
       </div>
 
       {/* 2. BIG STAT CARDS */}
@@ -104,7 +104,7 @@ export default function CleanDashboard() {
             <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse" />
             <h3 className="font-bold uppercase tracking-widest text-sm opacity-80">System is Online</h3>
           </div>
-          <p className="text-emerald-100 text-sm leading-relaxed italic">
+          <p className="text-emerald-100 text-sm leading-relaxed ">
             "Your store is currently live and customers can browse your solar panels and air units without any issues."
           </p>
         </div>

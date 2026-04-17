@@ -18,7 +18,7 @@ export default function Topbar() {
           <Zap size={16} fill="currentColor" />
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] font-black uppercase tracking-widest text-emerald-900/30">
+          <span className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100">
             Ishabella
           </span>
           <ChevronRight size={12} className="text-emerald-900/20" />
@@ -32,7 +32,7 @@ export default function Topbar() {
       <div className="flex items-center gap-6">
         
         {/* Alerts - Connection to your "Collectibles" and "Stock" data */}
-        <button className="relative text-emerald-900/40 hover:text-emerald-600 transition-colors">
+        <button className="relative text-emerald-900/100 over:text-emerald-600 transition-colors">
           <Bell size={20} />
           <span className="absolute -top-1 -right-1 h-4 w-4 bg-rose-500 text-white text-[8px] font-black rounded-full flex items-center justify-center border-2 border-white">
             3
@@ -43,10 +43,10 @@ export default function Topbar() {
 
         <div className="flex items-center gap-4 group cursor-pointer">
           <div className="text-right">
-            <p className="text-[10px] font-black uppercase tracking-widest text-emerald-900">
+            <p className="text-[10px] font-black uppercase tracking-widest text-black-900/80">
               Admin Chief
             </p>
-            <p className="text-[9px] font-bold text-emerald-500/60 uppercase tracking-tighter">
+            <p className="text-[9px] font-bold text-emerald-800/80 uppercase tracking-tighter">
               Verified User
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function Topbar() {
           </div>
 
           {/* Logout - Integrated style */}
-          <button className="ml-2 p-2 text-emerald-900/30 hover:text-rose-600 transition-colors">
+          <button className="ml-2 p-2 text-emerald-900/100 hover:text-rose-600 transition-colors">
             <LogOut size={18} />
           </button>
         </div>

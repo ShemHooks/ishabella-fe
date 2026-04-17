@@ -17,7 +17,7 @@ export default function ShopPage() {
     {
       id: 1,
       name: "170W Monocrystalline Solar Panel",
-      price: 1300,
+      price: 6000,
       oldPrice: 1500,
       rating: 4.8,
       sold: "8k+",
@@ -28,7 +28,7 @@ export default function ShopPage() {
     {
       id: 2,
       name: "Complete 1kW Home Solar Kit",
-      price: 49000,
+      price: 11000,
       oldPrice: 56300,
       rating: 4.9,
       sold: "5k+",
@@ -40,7 +40,7 @@ export default function ShopPage() {
     {
       id: 3,
       name: "Complete 1kW Home Solar Kit",
-      price: 49000,
+      price: 12000,
       oldPrice: 56300,
       rating: 4.9,
       sold: "5k+",
@@ -51,7 +51,7 @@ export default function ShopPage() {
     {
       id: 4,
       name: "Complete 1kW Home Solar Kit",
-      price: 49000,
+      price: 7000,
       oldPrice: 56300,
       rating: 4.9,
       sold: "5k+",

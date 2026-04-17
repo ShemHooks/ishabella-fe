@@ -4,7 +4,7 @@ import { Facebook, Instagram, ShieldCheck, Zap, MessageSquare } from "lucide-rea
 const AboutPage = () => {
   return (
     /* Reduced vertical padding from pt-20/pb-10 to pt-12/pb-8 for a tighter box feel */
-    <footer className="bg-[#064e3b] pt-12 pb-8 px-6 text-white relative overflow-hidden">
+    <footer className="bg-slate-200 pt-12 pb-8 px-6 text-white relative overflow-hidden">
       {/* Subtle Grounded energy line */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-emerald-500/30" />
       
@@ -20,11 +20,11 @@ const AboutPage = () => {
             
             <div className="space-y-1">
               <p className="text-xl font-black  uppercase tracking-tighter text-emerald-400">Fearless in action.</p>
-              <p className="text-xl font-black  uppercase tracking-tighter text-white">Grounded in faith.</p>
+              <p className="text-xl font-black  uppercase tracking-tighter text-black">Grounded in faith.</p>
               <p className="text-xl font-black  uppercase tracking-tighter text-emerald-500">Relentless in execution.</p>
             </div>
 
-            <p className="text-emerald-100/100 text-xs leading-relaxed max-w-sm font-medium border-l-2 border-emerald-800 pl-4">
+            <p className="text-emerald-900/100 text-xs leading-relaxed max-w-sm font-medium border-l-2 border-emerald-800 pl-4">
               ISHABELLA CORP is a commitment to excellence in solar and cooling technology.
             </p>
           </div>
@@ -32,19 +32,19 @@ const AboutPage = () => {
           {/* QUICK NAVIGATION */}
           <div className="grid grid-cols-2 gap-6 lg:col-span-2">
             <div>
-              <h4 className="font-black text-[9px] uppercase tracking-[0.3em] text-emerald-500 mb-6 text-white/100">Solutions</h4>
-              <ul className="space-y-3 text-xs font-bold text-emerald-100/100">
-                <li className="hover:text-white cursor-pointer transition-colors">Solar Performance</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Industrial Cooling</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Energy Storage</li>
+              <h4 className=" text-[13px] uppercase tracking-[0.3em] text-emerald-900 mb-6 ">Solutions</h4>
+              <ul className="space-y-4 text-xs font-uppercase text-emerald-100/100">
+                <li className="hover:text-green cursor-pointer transition-colors text-emerald-900/100">Solar Performance</li>
+                <li className="hover:text-green cursor-pointer transition-colors text-emerald-900/100">Industrial Cooling</li>
+                <li className="hover:text-green cursor-pointer transition-colors text-emerald-900/100">Energy Storage</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-black text-[9px] uppercase tracking-[0.3em] text-emerald-500 mb-6 text-white/100">Connect</h4>
-              <ul className="space-y-3 text-xs font-bold text-emerald-100/100">
-                <li className="flex items-center gap-2 hover:text-white cursor-pointer"><MessageSquare size={14}/> Direct Inquiry</li>
-                <li className="flex items-center gap-2 hover:text-white cursor-pointer"><Facebook size={14}/> Facebook</li>
-                <li className="flex items-center gap-2 hover:text-white cursor-pointer"><Instagram size={14}/> Instagram</li>
+              <h4 className=" text-[13px] uppercase tracking-[0.3em] text-emerald-900 mb-6 ">Connect</h4>
+              <ul className="space-y-4 text-xs font-uppercase text-emerald-100/100">
+                <li className="flex items-center gap-2 hover:text-green cursor-pointer text-emerald-900/100"><MessageSquare size={14}/> Direct Inquiry</li>
+                <li className="flex items-center gap-2 hover:text-green cursor-pointer text-emerald-900/100"><Facebook size={14}/> Facebook</li>
+                <li className="flex items-center gap-2 hover:text-green cursor-pointer text-emerald-900/100"><Instagram size={14}/> Instagram</li>
               </ul>
             </div>
           </div>
@@ -60,7 +60,7 @@ const AboutPage = () => {
               <Zap size={12}/> Solar Partner
             </div>
           </div>
-          <p className="text-[9px] font-bold opacity-80 tracking-widest uppercase">© 2026 ISHABELLA CORP. Execution is everything.</p>
+          <p className="text-[9px] font-bold  text-emerald-900 opacity-80 tracking-widest uppercase">© 2026 ISHABELLA CORP. Execution is everything.</p>
         </div>
       </div>
     </footer>

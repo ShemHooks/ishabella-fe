@@ -57,7 +57,7 @@ export default function CreateEmployeePage() {
                   <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100 ml-1">Contact Email</label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-900/20" size={18} />
-                    <input type="email" className="w-full bg-emerald-50/30 border-2 border-emerald-900/5 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-emerald-500 transition-all font-bold text-sm text-emerald-900 placeholder:text-emerald-900/50" placeholder="name@mail.com" />
+                    <input type="email" className="w-full bg-emerald-50/30 border-2 border-emerald-900/5 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-emerald-500 transition-all font-bold text-sm text-emerald-900 placeholder:text-emerald-900/50" placeholder="Juan@gmail.com" />
                   </div>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function CreateEmployeePage() {
               </h3>
 
               <div className="space-y-6">
-                <p className="text-[10px] font-bold text-emerald-100/60 uppercase leading-relaxed">
+                <p className="text-[10px] font-bold text-emerald-100/80 uppercase leading-relaxed">
                   Confirm all operational details before deployment. This will register the asset into the active payroll and registry.
                 </p>
 
@@ -118,9 +118,9 @@ export default function CreateEmployeePage() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border-2 border-dashed border-emerald-900/10 flex items-start gap-4">
+            <div className="bg-white p-6 rounded-2xl border-2 border-dashed border-emerald-900/50 flex items-start gap-4">
               <Activity size={20} className="text-emerald-500 shrink-0" />
-              <p className="text-[9px] font-black uppercase tracking-widest text-emerald-900/40 leading-tight">
+              <p className="text-[9px] font-black uppercase tracking-widest text-emerald-900/100 leading-tight">
                 Onboarding triggers real-time updates across all administrative modules.
               </p>
             </div>

@@ -28,7 +28,7 @@ const VersePage = () => {
         </p>
 
         {/* Action Button */}
-        <button className="group bg-white text-[#064e3b] px-10 mt-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-emerald-700 hover:text-white transition-all duration-300 shadow-2xl">
+        <button className="group bg-white text-[#064e3b] px-10 mt-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-amber-500 hover:text-white transition-all duration-300 shadow-2xl">
           Learn More 
           <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </button>

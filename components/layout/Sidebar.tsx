@@ -20,15 +20,10 @@ export default function Sidebar() {
         <img 
           src="/images/logo.png" 
           alt="Ishabella Logo" 
-          className="w-35 h-25 object-contain mb-4 drop-shadow-2xl" 
+          className="w-40 h-30 object-contain mb-4 drop-shadow-2xl" 
         />
         <div className="text-center">
-          <h1 className={`${poppins.className} text-xl font-black  uppercase tracking-tighter text-emerald-500`}>
-            Ishabella
-          </h1>
-          <p className="text-[8px] font-bold uppercase tracking-[0.3em] text-white/100 mt-1">
-            Execution Portal
-          </p>
+        
         </div>
       </div>
 
@@ -69,8 +64,8 @@ export default function Sidebar() {
       {/* System Status Footer */}
       <div className="p-6 bg-emerald-900 border-t border-white/5">
         <div className="flex items-center gap-3 mb-4">
-          <div className="h-2 w-2 rounded-full bg-emerald-700 animate-pulse" />
-          <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400">
+          <div className="h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
+          <span className="text-[10px] font-black uppercase tracking-widest text-white">
             System Online
           </span>
         </div>

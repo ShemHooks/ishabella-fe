@@ -2,9 +2,11 @@
 
 import { Bell, User, LogOut, ChevronRight, Zap } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Topbar() {
   const pathname = usePathname();
+  const router= useRouter()
   
   // Clean up the path for the breadcrumb (e.g., /admin/employee -> Employee)
   const currentPath = pathname.split("/").pop()?.replace(/-/g, " ") || "Dashboard";
@@ -21,7 +23,7 @@ export default function Topbar() {
           <span className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100">
             Ishabella
           </span>
-          <ChevronRight size={12} className="text-emerald-900/20" />
+          <ChevronRight size={12} className="text-emerald-900/100"  />
           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-900 italic">
             {currentPath}
           </span>
@@ -59,7 +61,9 @@ export default function Topbar() {
           </div>
 
           {/* Logout - Integrated style */}
-          <button className="ml-2 p-2 text-emerald-900/100 hover:text-rose-600 transition-colors">
+          <button className="ml-2 p-2 text-emerald-900/100 hover:text-rose-600 transition-colors"onClick={()=>router.replace(
+            '/'
+          )}>
             <LogOut size={18} />
           </button>
         </div>

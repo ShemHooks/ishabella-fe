@@ -3,7 +3,7 @@ import React from "react";
 const categories = [
   { id: 1, name: "Aircon Units", image: "/air-unit.png" },
   { id: 2, name: "Installation Materials for Air conditioning", image: "/solar-battery.png" },
-  { id: 3, name: "Aircon, Solar and Electrical Installation Services", image: "/solar-battery.png" },
+  { id: 3, name: "Aircon, Solar and Electrical Installation", image: "/solar-battery.png" },
   { id: 4, name: "Car Aircon Parts", image: "/solar-battery.png" },
   { id: 5, name: "Electrical Materials", image: "/solar-battery.png" },
   { id: 6, name: " Lithium Battery for Solar", image: "/solar-battery.png" },

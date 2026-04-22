@@ -45,6 +45,9 @@ export default function Page() {
 
       if (role === "Admin") {
         router.replace("/admin/dashboard");
+      }else if(role === "Inventory Manager"){
+                router.replace("/inventory/dashboard");
+
       }
 
       console.log(response);

@@ -1,7 +1,12 @@
-import React from "react";
-import { ChevronRight, BookOpen } from "lucide-react";
+'use client';
+
+import React from 'react';
+import { ChevronRight, BookOpen } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const VersePage = () => {
+  const router = useRouter();
+
   return (
     <section className="relative overflow-hidden py-24 px-6 text-center min-h-[500px] flex items-center justify-center">
       {/* Animated Gradient Background */}
@@ -28,8 +33,11 @@ const VersePage = () => {
         </p>
 
         {/* Action Button */}
-        <button className="group bg-white text-[#064e3b] px-10 mt-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-amber-500 hover:text-white transition-all duration-300 shadow-2xl">
-          Learn More 
+        <button
+          className="group bg-white text-[#064e3b] px-10 mt-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-amber-500 hover:text-white transition-all duration-300 shadow-2xl"
+          onClick={() => router.push('/about')}
+        >
+          Learn More
           <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </button>
       </div>

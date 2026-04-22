@@ -9,3 +9,17 @@ export const getRoleList = async () => {
     throw error;
   }
 };
+
+export const getProductCategories = async () => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await api.get('api/app/product/category/list', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};

@@ -1,143 +1,241 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import { 
-  ArrowLeft, 
-  Save, 
-  Trash2, 
-  ShieldAlert, 
-  BadgeCheck, 
-  MapPin, 
-  Calendar,
-  Wallet
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { ArrowLeft, Save, Trash2, ShieldAlert } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useParams } from 'next/navigation';
+import { getEmpData } from '@/server/api/adminFeatures';
+
+type Employee = {
+  id: string;
+  full_name: string;
+  email?: string;
+  position: string;
+  department: string;
+  salary: string;
+  employment_type: string;
+  status: string;
+  employee_code: string;
+
+  birth_date: string | null;
+  gender: string | null;
+  phone: string | null;
+  address: string | null;
+  branch: string | null;
+  hire_date: string | null;
+  termination_date: string | null;
+
+  user?: {
+    email: string;
+  };
+};
 
 export default function ViewEmployeePage() {
+  const params = useParams<{ id: string }>();
+  const id = params.id;
+
+  const [employeeData, setEmployeeData] = useState<Employee | null>(null);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  // ✅ instead of N/A
+  const getValue = (val: any) => val || '';
+
+  const getData = async () => {
+    try {
+      setLoading(true);
+      const response = await getEmpData(id);
+      setEmployeeData(response.data.data);
+    } catch (error: any) {
+      setError(error?.response?.data?.message || 'Failed to fetch employee');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (id) getData();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-emerald-700 font-black">
+        Loading employee data...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center text-red-600 font-bold">
+        <p>{error}</p>
+        <Link href="/admin/employee" className="mt-4 text-emerald-600 underline">
+          Go back
+        </Link>
+      </div>
+    );
+  }
+
+  if (!employeeData) return null;
+
   return (
     <div className="p-8 bg-[#f8fafc] min-h-screen font-sans">
       <div className="max-w-5xl mx-auto">
-        
-        {/* Header with Navigation */}
+        {/* HEADER */}
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <Link href="/admin/employee" className="flex items-center gap-2 text-emerald-600 hover:text-emerald-800 transition-colors mb-4">
+            <Link
+              href="/admin/employee"
+              className="flex items-center gap-2 text-emerald-600 hover:text-emerald-800 mb-4"
+            >
               <ArrowLeft size={16} />
-              <span className="text-[10px] font-black uppercase tracking-widest">Personnel Registry</span>
+              <span className="text-[10px] font-black uppercase tracking-widest">
+                Personnel Registry
+              </span>
             </Link>
+
             <div className="flex items-center gap-4">
-              <h1 className="text-5xl font-black uppercase  tracking-tighter text-[#064e3b]">
-                User
+              <h1 className="text-4xl font-black uppercase text-[#064e3b]">
+                {employeeData.full_name}
               </h1>
-              <div className="bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg shadow-emerald-500/20">
-                Active
+
+              <div className="bg-emerald-500 text-white text-[10px] px-3 py-1 rounded-full uppercase">
+                {employeeData.status}
               </div>
             </div>
           </div>
 
           <div className="flex gap-3">
-            <button className="flex items-center gap-2 px-6 py-3 border-2 border-rose-500/20 text-rose-600 hover:bg-rose-50 rounded-xl transition-all font-black uppercase text-[10px] tracking-widest">
-              <Trash2 size={16} /> Terminate Access
+            <button className="flex items-center gap-2 px-6 py-3 border text-rose-600 rounded-xl text-xs uppercase">
+              <Trash2 size={16} /> Terminate
             </button>
-            <Button className="flex items-center gap-2 bg-[#064e3b] hover:bg-emerald-800 text-white px-8 py-3 rounded-xl font-blac k uppercase text-[10px] tracking-widest shadow-xl shadow-emerald-900/20">
-              <Save size={16} /> Commit Changes
+
+            <Button className="flex items-center gap-2 bg-[#064e3b] text-white px-6 py-3 rounded-xl text-xs uppercase">
+              <Save size={16} /> Save
             </Button>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          {/* Left Column: Tactical Overview */}
+          {/* LEFT */}
           <div className="space-y-6">
-            <div className="bg-emerald-950 p-8 rounded-3xl text-white shadow-2xl relative overflow-hidden">
-              <BadgeCheck className="absolute -right-6 -bottom-6 w-32 h-32 text-white/5 -rotate-12" />
-              
-              <div className="relative z-10">
-                <p className="text-emerald-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6">Security Clearance</p>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                    <span className="text-[10px] font-bold text-white/50 uppercase">ID Code</span>
-                    <span className="font-mono font-black text-sm">IBX-2026-042</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                    <span className="text-[10px] font-bold text-white/50 uppercase">Deployment</span>
-                    <span className="font-black text-xs uppercase tracking-wider">Field Operations</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-[10px] font-bold text-white/50 uppercase">Last Sync</span>
-                    <span className="font-black text-xs uppercase tracking-wider">2 Hours Ago</span>
-                  </div>
+            <div className="bg-emerald-950 p-6 rounded-2xl text-white">
+              <p className="text-xs text-emerald-400 mb-4">Employee Info</p>
+
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span>ID</span>
+                  <span>{employeeData.employee_code}</span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span>Position</span>
+                  <span>{employeeData.position}</span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span>Department</span>
+                  <span>{employeeData.department}</span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span>Branch</span>
+                  <span>{employeeData.branch || '-'}</span>
+                </div>
+
+                <div className="flex justify-between">
+                  <span>Status</span>
+                  <span>{employeeData.status}</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border-2 border-dashed border-emerald-900/10 flex items-start gap-4">
-              <ShieldAlert className="text-amber-500 shrink-0" size={24} />
-              <p className="text-[9px] font-bold text-emerald-900/60 uppercase leading-relaxed">
-                Modification of financial records or access levels requires secondary authorization from the Chief Administrator.
-              </p>
+            <div className="bg-white p-4 rounded-xl border flex gap-3">
+              <ShieldAlert className="text-amber-500" size={20} />
+              <p className="text-xs">Changes require admin authorization.</p>
             </div>
           </div>
 
-          {/* Right Column: Editable Data Blocks */}
+          {/* RIGHT */}
           <div className="lg:col-span-2 space-y-6">
-            
-            {/* Field: Identification */}
-            <div className="bg-white p-8 rounded-3xl shadow-xl border border-emerald-900/5">
-              <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-emerald-900/100 mb-8 flex items-center gap-2">
-                <Trash2 size={14} className="text-emerald-500" /> Identity Profile
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100 ml-1">Full Legal Name</label>
-                  <input className="w-full bg-[#f8fafc] border-2 border-emerald-900/5 p-4 rounded-xl focus:outline-none focus:border-emerald-500 transition-all font-black text-emerald-900 text-sm" defaultValue="User" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100 ml-1">Email Address</label>
-                  <input className="w-full bg-[#f8fafc] border-2 border-emerald-900/5 p-4 rounded-xl focus:outline-none focus:border-emerald-500 transition-all font-bold text-emerald-900 text-sm" defaultValue="email@mail.com" />
-                </div>
+            {/* PROFILE */}
+            <div className="bg-white p-6 rounded-2xl shadow">
+              <h3 className="text-sm font-bold mb-6">Identity Profile</h3>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <input value={employeeData.full_name} readOnly className="p-3 border rounded" />
+
+                <input
+                  value={employeeData.user?.email || ''}
+                  readOnly
+                  className="p-3 border rounded"
+                />
+
+                <input
+                  value={getValue(employeeData.birth_date)}
+                  placeholder="Birth Date"
+                  readOnly
+                  className="p-3 border rounded placeholder:text-gray-400"
+                />
+
+                <input
+                  value={getValue(employeeData.gender)}
+                  placeholder="Gender"
+                  readOnly
+                  className="p-3 border rounded placeholder:text-gray-400"
+                />
+
+                <input
+                  value={getValue(employeeData.phone)}
+                  placeholder="Phone"
+                  readOnly
+                  className="p-3 border rounded placeholder:text-gray-400"
+                />
+
+                <input
+                  value={getValue(employeeData.address)}
+                  placeholder="Address"
+                  readOnly
+                  className="p-3 border rounded placeholder:text-gray-400"
+                />
               </div>
             </div>
 
-            {/* Field: Logistics & Compensation */}
-            <div className="bg-white p-8 rounded-3xl shadow-xl border border-emerald-900/5">
-              <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-emerald-900/100 mb-8 flex items-center gap-2">
-                <Wallet size={14} className="text-emerald-500" /> Operational Specs
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100 ml-1">Role Type</label>
-                  <select className="w-full bg-[#f8fafc] border-2 border-emerald-900/5 p-4 rounded-xl focus:outline-none focus:border-emerald-500 transition-all font-black uppercase text-[10px] tracking-widest text-emerald-900 cursor-pointer">
-                    <option>Technician</option>
-                    <option>Sales Agent</option>
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100 ml-1">Salary Grade</label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 font-black text-emerald-900/50">₱</span>
-                    <input type="number" className="w-full bg-[#f8fafc] border-2 border-emerald-900/5 pl-10 pr-4 py-4 rounded-xl focus:outline-none focus:border-emerald-500 transition-all font-black text-emerald-900 text-sm" defaultValue="8000" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100 ml-1">Department</label>
-                  <input className="w-full bg-[#f8fafc] border-2 border-emerald-900/5 p-4 rounded-xl focus:outline-none focus:border-emerald-500 transition-all font-bold text-sm" defaultValue="Operations" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100 ml-1">Position Title</label>
-                  <input className="w-full bg-[#f8fafc] border-2 border-emerald-900/5 p-4 rounded-xl focus:outline-none focus:border-emerald-500 transition-all font-bold text-sm" defaultValue="Installer" />
-                </div>
+            {/* JOB */}
+            <div className="bg-white p-6 rounded-2xl shadow">
+              <h3 className="text-sm font-bold mb-6">Job Details</h3>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <input value={employeeData.position} readOnly className="p-3 border rounded" />
+
+                <input value={employeeData.department} readOnly className="p-3 border rounded" />
+
+                <input value={`₱ ${employeeData.salary}`} readOnly className="p-3 border rounded" />
+
+                <input
+                  value={employeeData.employment_type}
+                  readOnly
+                  className="p-3 border rounded"
+                />
+
+                <input
+                  value={getValue(employeeData.hire_date)}
+                  placeholder="Hire Date"
+                  readOnly
+                  className="p-3 border rounded placeholder:text-gray-400"
+                />
+
+                <input
+                  value={getValue(employeeData.termination_date)}
+                  placeholder="Termination Date"
+                  readOnly
+                  className="p-3 border rounded placeholder:text-gray-400"
+                />
               </div>
             </div>
           </div>
         </div>
-
-        <p className="mt-12 text-center text-[9px] font-black uppercase tracking-[0.5em] text-emerald-900/70">
-          AUTHORIZED PERSONNEL DATA ACCESS — SYSTEM LOGGED
-        </p>
       </div>
     </div>
   );

@@ -21,7 +21,6 @@ export default function EmployeesPage() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  // ✅ NEW
   const [perPage, setPerPage] = useState(10);
 
   const fetchEmployees = async () => {
@@ -77,9 +76,6 @@ export default function EmployeesPage() {
         {/* HEADER */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
           <div>
-            <h2 className="text-3xl font-black uppercase tracking-tighter">
-              Employee <span className="text-black">Registry</span>
-            </h2>
             <p className="text-emerald-800/60 font-bold text-xs uppercase tracking-widest mt-1">
               Grounded in Commitment, Driven by Action
             </p>

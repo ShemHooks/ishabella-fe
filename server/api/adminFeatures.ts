@@ -39,3 +39,18 @@ export const getEmployeeList = async (params = {}) => {
     throw error;
   }
 };
+
+export const getEmpData = async (id: string) => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = api.get(`api/employee/data/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};

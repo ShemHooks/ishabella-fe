@@ -1,16 +1,18 @@
-"use client";
+'use client';
 
-import React from "react";
-import Aurora from "../effects/Aurora";
-import { Button } from "../ui/button";
+import React from 'react';
+import Aurora from '../effects/Aurora';
+import { Button } from '../ui/button';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <section className="relative min-h-[calc(100dvh-80px)] w-full overflow-hidden flex items-center justify-center">
-      {" "}
+      {' '}
       <div className="absolute inset-0 -z-10">
         <Aurora
-          colorStops={["#22C55E", "#055310", "#113e17", "#F0F9FF"]}
+          colorStops={['#22C55E', '#055310', '#113e17', '#F0F9FF']}
           speed={0.8}
           amplitude={0.7}
           blend={1}
@@ -38,7 +40,12 @@ const Hero = () => {
           HVACR Parts, Solar Systems, Installation & Nationwide Logistics
         </p>
 
-        <Button className="mt-4 px-8 py-6 text-lg font-semibold rounded-xl bg-white text-black hover:text-white">
+        <Button
+          className="mt-4 px-8 py-6 text-lg font-semibold rounded-xl bg-white text-black hover:text-white"
+          onClick={() => {
+            router.push('/screen/auth');
+          }}
+        >
           Shop Now
         </Button>
       </div>

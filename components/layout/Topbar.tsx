@@ -1,19 +1,17 @@
-"use client";
+'use client';
 
-import { Bell, User, LogOut, ChevronRight, Zap } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { Bell, User, LogOut, ChevronRight, Zap } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Topbar() {
   const pathname = usePathname();
-  const router= useRouter()
-  
+  const router = useRouter();
+
   // Clean up the path for the breadcrumb (e.g., /admin/employee -> Employee)
-  const currentPath = pathname.split("/").pop()?.replace(/-/g, " ") || "Dashboard";
+  const currentPath = pathname.split('/').pop()?.replace(/-/g, ' ') || 'Dashboard';
 
   return (
     <header className="bg-white border-b border-emerald-900/5 h-16 flex justify-between items-center px-8 sticky top-0 z-40">
-      
       {/* Tactical Breadcrumb */}
       <div className="flex items-center gap-3">
         <div className="bg-emerald-500 p-1.5 rounded-lg text-white shadow-sm shadow-emerald-200">
@@ -23,7 +21,7 @@ export default function Topbar() {
           <span className="text-[10px] font-black uppercase tracking-widest text-emerald-900/100">
             Ishabella
           </span>
-          <ChevronRight size={12} className="text-emerald-900/100"  />
+          <ChevronRight size={12} className="text-emerald-900/100" />
           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-900 italic">
             {currentPath}
           </span>
@@ -32,7 +30,6 @@ export default function Topbar() {
 
       {/* Profile & Actions */}
       <div className="flex items-center gap-6">
-        
         {/* Alerts - Connection to your "Collectibles" and "Stock" data */}
         <button className="relative text-emerald-900/100 over:text-emerald-600 transition-colors">
           <Bell size={20} />
@@ -52,7 +49,7 @@ export default function Topbar() {
               Verified User
             </p>
           </div>
-          
+
           <div className="relative">
             <div className="h-10 w-10 rounded-xl bg-emerald-900 flex items-center justify-center text-emerald-400 font-black shadow-lg shadow-emerald-900/20 group-hover:scale-105 transition-transform">
               <User size={20} />
@@ -61,9 +58,10 @@ export default function Topbar() {
           </div>
 
           {/* Logout - Integrated style */}
-          <button className="ml-2 p-2 text-emerald-900/100 hover:text-rose-600 transition-colors"onClick={()=>router.replace(
-            '/'
-          )}>
+          <button
+            className="ml-2 p-2 text-emerald-900/100 hover:text-rose-600 transition-colors"
+            onClick={() => router.replace('/')}
+          >
             <LogOut size={18} />
           </button>
         </div>

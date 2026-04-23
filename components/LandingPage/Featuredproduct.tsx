@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ShoppingCart, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { featuredProductLP } from '@/server/api/landingPage';
+import { redirect } from 'next/navigation';
 
 export default function Featuredproduct() {
   const [products, setProducts] = useState<any[]>([]);
@@ -16,6 +17,10 @@ export default function Featuredproduct() {
   useEffect(() => {
     getFeaturedProducts();
   }, []);
+
+  const redirect = () => {
+    router.push('screen/auth');
+  };
 
   return (
     <section className="py-16 bg-white">
@@ -31,21 +36,24 @@ export default function Featuredproduct() {
             </p>
           </div>
 
-          <button className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-emerald-600 hover:text-[#064e3b] transition-colors">
+          <button
+            className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-emerald-600 hover:text-[#064e3b] transition-colors"
+            onClick={redirect}
+          >
             View All
             <ArrowRight size={16} />
           </button>
         </div>
 
         {/* Product Grid */}
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="flex lg:grid lg:grid-cols-4 gap-6 overflow-x-auto lg:overflow-visible snap-x snap-mandatory pb-4 no-scrollbar">
           {products.map((product) => {
             const photos = product.product_photo || [];
 
             return (
               <div
                 key={product.id}
-                className="bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                className="min-w-[80%] sm:min-w-[60%] lg:min-w-0 snap-center bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 {/* Image */}
                 <div className="relative bg-slate-50 h-56 overflow-hidden">
@@ -56,7 +64,7 @@ export default function Featuredproduct() {
                   {/* SLIDER */}
                   <div
                     id={`slider-${product.id}`}
-                    className="flex w-full h-full overflow-x-auto snap-x snap-mandatory scroll-smooth"
+                    className="flex w-full h-full overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar"
                   >
                     {photos.length > 0 ? (
                       photos.map((photo: any, index: number) => {
@@ -89,7 +97,7 @@ export default function Featuredproduct() {
                         const slideWidth = el.clientWidth;
                         el.scrollBy({ left: -slideWidth, behavior: 'smooth' });
                       }}
-                      className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow p-2 rounded-full"
+                      className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow p-2 rounded-full "
                     >
                       <ChevronLeft size={18} />
                     </button>
@@ -104,7 +112,7 @@ export default function Featuredproduct() {
                         const slideWidth = el.clientWidth;
                         el.scrollBy({ left: slideWidth, behavior: 'smooth' });
                       }}
-                      className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow p-2 rounded-full"
+                      className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white shadow p-2 rounded-full "
                     >
                       <ChevronRight size={18} />
                     </button>
@@ -127,7 +135,10 @@ export default function Featuredproduct() {
                     {product.sold ?? 0} sold
                   </p>
 
-                  <button className="mt-4 w-full flex items-center justify-center gap-2 bg-[#064e3b] hover:bg-emerald-700 text-white py-3 rounded-xl font-black uppercase text-xs tracking-widest transition-all shadow-md active:scale-95">
+                  <button
+                    className="mt-4 w-full flex items-center justify-center gap-2 bg-[#064e3b] hover:bg-emerald-700 text-white py-3 rounded-xl font-black uppercase text-xs tracking-widest transition-all shadow-md active:scale-95"
+                    onClick={redirect}
+                  >
                     <ShoppingCart size={16} />
                     Buy Now
                   </button>

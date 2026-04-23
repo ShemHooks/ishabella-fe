@@ -10,7 +10,7 @@ export default function Navbar() {
   const router = useRouter();
 
   const toAuth = () => {
-    router.replace('/screen/auth');
+    router.push('/screen/auth');
   };
 
   const navLinks = [

@@ -29,3 +29,15 @@ export const createProduct = async (payload: FormData) => {
     throw error;
   }
 };
+
+export const getProductListing = async (keyword: string) => {
+  try {
+    const response = await api.get('api/product/listings', {
+      params: { keyword },
+    });
+
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};

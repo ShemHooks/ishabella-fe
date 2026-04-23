@@ -26,6 +26,9 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
   const [selectedCategory, setSelectedCategory] = useState('');
   const [showCreateCategory, setShowCreateCategory] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState<string>('');
+
+  const [isSkuManual, setIsSkuManual] = useState(false);
+
   const [form, setForm] = useState({
     name: '',
     sku: '',
@@ -34,6 +37,32 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
     cost_price: '',
     stock_quantity: '',
   });
+
+  // 🔥 SKU GENERATOR
+  const generateSKU = (name: string) => {
+    if (!name) return '';
+
+    const clean = name.toUpperCase().replace(/[^A-Z0-9 ]/g, '');
+    const words = clean.split(' ').filter(Boolean);
+
+    const brand = words
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join('');
+
+    const powerMatch = clean.match(/(\d+)\s?KW/);
+    const power = powerMatch ? powerMatch[1] + 'K' : '';
+
+    let type = '';
+    if (clean.includes('LIFEPO4')) type += 'LFP';
+    if (clean.includes('BATTERY')) type += 'B';
+    if (clean.includes('SYSTEM')) type += 'S';
+    if (clean.includes('SOLAR')) type += 'SOL';
+
+    const random = Math.random().toString(36).substring(2, 8).toUpperCase();
+
+    return `${brand}${power}-${type}-${random}`;
+  };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -64,9 +93,17 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
+    const { name, value } = e.target;
+
+    setForm((prev) => {
+      const updated = { ...prev, [name]: value };
+
+      // 🔥 AUTO SKU (only if not manually edited)
+      if (name === 'name' && !isSkuManual) {
+        updated.sku = generateSKU(value);
+      }
+
+      return updated;
     });
   };
 
@@ -75,7 +112,6 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
       setLoading(true);
       setError(null);
 
-      // ✅ basic validation
       if (!form.name || !form.sku || !form.price || !selectedCategory) {
         setError('Please fill in all required fields.');
         setLoading(false);
@@ -107,6 +143,7 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
       });
       setImages([]);
       setSelectedCategory('');
+      setIsSkuManual(false);
 
       onClose();
     } catch (error: any) {
@@ -125,7 +162,6 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/60 backdrop-blur-sm">
       <div className="bg-white w-full max-w-4xl rounded-[2.5rem] shadow-2xl border border-emerald-900/10 overflow-hidden flex flex-col max-h-[90vh]">
-        {/* HEADER */}
         <div className="p-8 border-b border-emerald-900/5 flex justify-between items-center bg-white">
           <div>
             <h2 className="text-3xl font-black uppercase tracking-tighter text-[#064e3b]">
@@ -143,12 +179,9 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
           </button>
         </div>
 
-        {/* BODY */}
         <div className="p-8 overflow-y-auto">
           <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* LEFT */}
             <div className="space-y-6">
-              {/* PRODUCT NAME */}
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/60 ml-1">
                   Product Name
@@ -162,7 +195,6 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                 />
               </div>
 
-              {/* SKU + CATEGORY */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/60 ml-1">
@@ -171,13 +203,15 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                   <input
                     name="sku"
                     value={form.sku}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      setIsSkuManual(true);
+                      handleChange(e);
+                    }}
                     className="w-full bg-emerald-50/30 border-2 border-emerald-900/5 p-4 rounded-xl focus:border-emerald-500 outline-none font-bold text-xs uppercase tracking-wider"
                     placeholder="SLP-550-01"
                   />
                 </div>
 
-                {/* CATEGORY */}
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/60 ml-1">
                     Category UUID
@@ -205,7 +239,6 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                     <option value="create_new">+ Create New Category</option>
                   </select>
 
-                  {/* INLINE CREATE CATEGORY */}
                   {showCreateCategory && (
                     <div className="mt-2 p-3 border border-emerald-200 rounded-xl bg-emerald-50/50 space-y-2">
                       <input
@@ -238,7 +271,6 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                 </div>
               </div>
 
-              {/* DESCRIPTION */}
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/60 ml-1">
                   Description
@@ -254,9 +286,7 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
               </div>
             </div>
 
-            {/* RIGHT */}
             <div className="space-y-6">
-              {/* PRICING */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="space-y-2 text-emerald-600">
                   <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/60 ml-1">
@@ -301,7 +331,6 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                 </div>
               </div>
 
-              {/* IMAGES */}
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-emerald-900/60 ml-1">
                   Photos (can add multiple)
@@ -348,7 +377,6 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
           {error && <p className="mt-4 text-sm font-bold text-red-600">{error}</p>}
         </div>
 
-        {/* FOOTER */}
         <div className="p-8 bg-emerald-50/50 border-t border-emerald-900/5 flex gap-4">
           <button
             onClick={onClose}
@@ -369,14 +397,13 @@ function AddStockModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
   );
 }
 
-// --- MAIN PAGE COMPONENT ---
+// MAIN PAGE (unchanged UI)
 export default function StocksPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="p-8 bg-[#f8fafc] min-h-screen font-sans">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 text-emerald-600 mb-2">
@@ -398,58 +425,6 @@ export default function StocksPage() {
           </Button>
         </div>
 
-        {/* Table */}
-        <div className="bg-white rounded-3xl shadow-2xl border border-emerald-900/5 overflow-hidden">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-emerald-50/50 border-b border-emerald-900/5">
-                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-900/40">
-                  Product
-                </th>
-                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-900/40">
-                  Warehouse
-                </th>
-                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-900/40 text-right">
-                  Quantity
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-emerald-900/5">
-              <tr className="hover:bg-emerald-50/30 transition-colors">
-                <td className="px-8 py-6">
-                  <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-700">
-                      <Layers size={20} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-black text-emerald-900 uppercase">
-                        Solar Panel 550W
-                      </p>
-                      <p className="text-[9px] font-bold text-emerald-900/30 uppercase tracking-tighter">
-                        SKU: SLP-550-PH
-                      </p>
-                    </div>
-                  </div>
-                </td>
-                <td className="px-8 py-6">
-                  <span className="text-xs font-bold uppercase tracking-tight text-emerald-900/60">
-                    Main Warehouse
-                  </span>
-                </td>
-                <td className="px-8 py-6 text-right">
-                  <span className="text-lg font-black text-emerald-900">120</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        {/* Footer */}
-        <p className="mt-10 text-center text-[9px] font-black uppercase tracking-[0.5em] text-emerald-900/20">
-          Ishabella Registry — Operational v2.0
-        </p>
-
-        {/* Modal Mount */}
         <AddStockModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </div>

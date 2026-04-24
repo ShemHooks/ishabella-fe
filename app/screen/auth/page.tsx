@@ -43,10 +43,14 @@ export default function Page() {
 
       const role = response.data.role;
 
+      console.log('ROLE', role);
+
       if (role === 'Admin') {
         router.replace('/admin/dashboard');
       } else if (role === 'Inventory Manager') {
         router.replace('/inventory/dashboard');
+      } else if (role === 'Customer') {
+        router.replace('/customer/dashboard');
       }
 
       console.log(response);

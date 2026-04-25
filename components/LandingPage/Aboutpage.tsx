@@ -1,7 +1,9 @@
 import React from 'react';
 import { MapPin, Facebook, Instagram, ShieldCheck, Zap, MessageSquare, Phone } from 'lucide-react';
 
-const AboutPage = () => {
+
+
+export default function AboutPage() {
   return (
     /* Reduced vertical padding from pt-20/pb-10 to pt-12/pb-8 for a tighter box feel */
     <footer className="bg-slate-200 pt-12 pb-8 px-6 text-white relative overflow-hidden">
@@ -33,13 +35,21 @@ const AboutPage = () => {
               </p>
             </div>
 
-            <p className="text-emerald-900/100 text-xs leading-relaxed max-w-sm font-medium border-l-2 border-emerald-800 pl-4">
-              ISHABELLA CORP is a commitment to excellence in solar and cooling technology.
-            </p>
+            <div className="max-w-sm">
+              <p className="text-[9px] font-black uppercase tracking-[0.4em] text-emerald-500/40 mb-3">
+                Mission Registry
+              </p>
+              <div className="border-l-2 border-emerald-500 pl-4">
+                <p className="text-emerald-100/100 text-[11px] leading-relaxed font-bold uppercase tracking-wide">
+                  ISHABELLA CORP is a commitment to excellence in solar and cooling technology. 
+                  We engineer frameworks for a high-performance industrial future.
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* QUICK NAVIGATION */}
-          <div className="grid grid-cols-2 gap-6 lg:col-span-2">
+          {/* NAVIGATION LINKS */}
+          <div className="grid grid-cols-2 gap-8 lg:col-span-2">
             <div>
               <h4 className=" text-[13px] uppercase tracking-[0.3em] text-emerald-900 mb-6 ">
                 Solutions
@@ -56,6 +66,7 @@ const AboutPage = () => {
                 </li>
               </ul>
             </div>
+
             <div>
               <h4 className=" text-[13px] uppercase tracking-[0.3em] text-emerald-900 mb-6 ">
                 Connect
@@ -99,4 +110,3 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;

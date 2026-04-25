@@ -24,12 +24,11 @@ export default function InventoryLayout({
         
         {/* Brand Header */}
         <div className="p-8 pb-12">
-          <div className="flex items-center gap-2 text-emerald-400 mb-4">
-             <Terminal size={18} />
-             <span className="text-[10px] font-black uppercase tracking-[0.4em]"></span>
-          </div>
-          <h1 className="text-3xl font-black uppercase tracking-tighter text-white">
-            Ishabella<span className="text-emerald-500">.</span>
+         
+             <span className="text-[10px] font-black uppercase tracking-[0.4em]">Inventory Manager</span>
+          
+          <h1 className="text-4xl font-black uppercase tracking-tighter text-white">
+          <span className="text-emerald-500">Ishabella.</span>
           </h1>
           <p className="text-[9px] font-black uppercase tracking-[0.3em] text-emerald-100/30 mt-1">
             
@@ -87,7 +86,7 @@ export default function InventoryLayout({
             '/'
           )}>
                 <LogOut size={14} />
-                Terminate Session
+                Sign Out
              </button>
           </div>
         </div>
@@ -99,8 +98,8 @@ export default function InventoryLayout({
         <header className="h-20 border-b border-emerald-900/5 bg-white/50 backdrop-blur-md flex items-center px-10 shrink-0 justify-end">
              <div className="flex items-center gap-4">
                 <div className="text-right">
-                    <p className="text-[10px] font-black uppercase text-emerald-900">System Administrator</p>
-                    <p className="text-[8px] font-bold text-emerald-900/40 uppercase">Inventory Node 01</p>
+                    <p className="text-[10px] font-black uppercase text-emerald-900">Inventory Administrator</p>
+                    <p className="text-[8px] font-bold text-emerald-900/40 uppercase">Management Node 01</p>
                 </div>
                 <div className="relative">
             <div className="h-10 w-10 rounded-xl bg-emerald-900 flex items-center justify-center text-emerald-400 font-black shadow-lg shadow-emerald-900/20 group-hover:scale-105 transition-transform">

@@ -22,11 +22,11 @@ export default function SocialLogin() {
         router.replace('/admin/dashboard');
       } else if (role === 'Inventory Manager') {
         router.replace('/inventory/dashboard');
+      } else if (role === 'Customer') {
+        router.replace('/customer/shop');
       }
 
-      // else if (role === 'Customer') {
-      //   router.replace('/customer/dashboard');
-      // }
+     
     } catch (error) {
       console.error('Google login error:', error);
     } finally {

@@ -18,7 +18,7 @@ const ProductCategory = () => {
   }, []);
 
   return (
-    <section className="py-15 px-7">
+    <section className="py-12 px-7 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-black text-[#064e3b]  uppercase tracking-tighter">
@@ -32,8 +32,8 @@ const ProductCategory = () => {
           </button>
         </div>
 
-        {/* CONTAINER FIX: Removed 'md:grid' to let 'flex-wrap' and 'justify-center' work properly */}
-        <div className="flex flex-wrap justify-center gap-6 pb-8 px-2">
+        {/* Grid Container */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
             <div
               key={category.id}
@@ -47,6 +47,9 @@ const ProductCategory = () => {
                   </span>
                 </div>
               </div>
+
+              {/* Hover Line Effect */}
+              <div className="absolute bottom-0 left-0 w-0 h-1 bg-emerald-500 transition-all duration-500 group-hover:w-full" />
             </div>
           ))}
         </div>

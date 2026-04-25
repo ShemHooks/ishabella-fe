@@ -52,7 +52,7 @@ export default function ShopPage() {
       <header className="bg-white border-b border-emerald-50 sticky top-0 z-50">
         <div className="max-w-[1200px] mx-auto px-6 py-6 flex flex-col md:flex-row items-center gap-6">
           <div className="relative flex-1 w-full">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-900/20" size={16} />
             <input
               type="text"
               value={keyword}

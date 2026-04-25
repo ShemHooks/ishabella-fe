@@ -18,26 +18,28 @@ const Hero = () => {
           blend={1}
         />
       </div>
-      <div className="absolute inset-0 bg-black/40 -z-10" />
-      <div className="relative z-10 text-center text-white px-6 max-w-5xl mx-auto flex flex-col items-center gap-8">
-        <div className="border border-white/30 backdrop-blur-sm px-5 py-2 rounded-full">
-          <p className="text-xs sm:text-sm uppercase tracking-widest">
-            Authorized Dealer • Nationwide Service
+      
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px] -z-10" />
+
+      <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto flex flex-col items-center gap-6">
+        
+        {/* Scaled down the technical badge */}
+        <div className="border border-emerald-500/30 bg-emerald-950/40 backdrop-blur-md px-4 py-1.5 rounded-full flex items-center gap-2">
+          <p className="text-[9px] font-black uppercase tracking-[0.3em] text-emerald-100">
+            System Protocol • Nationwide Logistics
           </p>
         </div>
 
-        <h1
-          className="font-bold leading-tight 
-          text-3xl 
-          sm:text-4xl 
-          md:text-5xl 
-          lg:text-6xl"
-        >
-          Powering Your Comfort with Smart Cooling & Solar Solutions
+        {/* Refined Headline: Reduced from 8xl/7xl to more manageable scales */}
+        <h1 className="font-black leading-[1.1] text-3xl sm:text-5xl md:text-6xl uppercase tracking-tighter">
+          Powering <span className="text-emerald-500">Comfort</span> <br />
+          Through <span className="text-emerald-400">Precision.</span>
         </h1>
 
-        <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl">
-          HVACR Parts, Solar Systems, Installation & Nationwide Logistics
+        {/* Tightened the sub-text */}
+        <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-emerald-100/70 max-w-lg leading-relaxed">
+          Technical HVACR Components • Industrial Solar Frameworks <br className="hidden md:block" /> 
+          Deployment & Nationwide Maintenance
         </p>
 
         <Button

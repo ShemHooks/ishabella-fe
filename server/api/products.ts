@@ -30,10 +30,29 @@ export const createProduct = async (payload: FormData) => {
   }
 };
 
-export const getProductListing = async (keyword: string) => {
+export const getProductListing = async (keyword: string, category: string) => {
   try {
     const response = await api.get('api/product/listings', {
-      params: { keyword },
+      params: {
+        ...(keyword && { keyword }),
+        ...(category && { category }),
+      },
+    });
+
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
+};
+
+export const getProductById = async (id: string) => {
+  try {
+    const token = localStorage.getItem('token');
+
+    const response = await api.get(`/api/product/show/details/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
 
     return response;
